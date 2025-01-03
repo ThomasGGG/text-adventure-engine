@@ -12,7 +12,7 @@ import textwrap
 import json
 import textwrap
 from subprocess import call
-
+import subprocess
 
 GAME_FOLDER = "test_game"
 STOP_WORDS_FILE = "stop_words"
@@ -134,9 +134,10 @@ def display_output(t, type=''):
         to_console(tt)
 
 
+
 def clear_screen():
-    """Clears the screen"""
-    _ = call('clear' if os.name == 'posix' else 'cls')
+    subprocess.call('cls' if os.name == 'nt' else 'clear', shell=True)
+
     
 
 def display_welcome():
